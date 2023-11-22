@@ -5,6 +5,8 @@ export interface Inputs {
   path: string;
   key: string;
   restoreKeys: string[];
+  keyFileName?: string;
+  compressionMethod?: string;
 }
 
 export function getInputs(): Inputs {
@@ -12,6 +14,8 @@ export function getInputs(): Inputs {
     bucket: core.getInput('bucket', { required: true }),
     path: core.getInput('path', { required: true }),
     key: core.getInput('key', { required: true }),
+    keyFileName: core.getInput('key-file-name'),
+    compressionMethod: core.getInput('compression-method'),
     restoreKeys: core
       .getInput('restore-keys')
       .split(',')

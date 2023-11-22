@@ -99,6 +99,7 @@ async function main() {
       path: inputs.path,
       cacheHitKind: 'none',
       targetFileName: exactFileName,
+      keyFileName: inputs.keyFileName,
     });
     core.setOutput('cache-hit', 'false');
     console.log('😢 No cache candidate found.');

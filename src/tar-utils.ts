@@ -3,6 +3,8 @@
 import * as exec from '@actions/exec';
 import * as semver from 'semver';
 
+import { getState } from './state';
+
 const ZSTD_WITHOUT_LONG_VERSION = '1.3.2';
 
 export enum CompressionMethod {
@@ -13,6 +15,11 @@ export enum CompressionMethod {
 
 async function getTarCompressionMethod(): Promise<CompressionMethod> {
   if (process.platform === 'win32') {
+    return CompressionMethod.GZIP;
+  }
+  const state = getState();
+
+  if (state.compressionMethod) {
     return CompressionMethod.GZIP;
   }
 

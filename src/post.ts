@@ -18,7 +18,9 @@ async function main() {
     return;
   }
 
-  const bucket = new Storage().bucket(state.bucket);
+  const bucket = new Storage({ keyFilename: state.keyFileName }).bucket(
+    state.bucket,
+  );
   const targetFileName = state.targetFileName;
   const [targetFileExists] = await bucket
     .file(targetFileName)
