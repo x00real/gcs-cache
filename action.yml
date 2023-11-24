@@ -16,6 +16,14 @@ inputs:
     description: Substitution keys to use when cache miss
     default: ''
     required: false
+  compression-method:
+    description: Compression method for the archive (gzip or zstd)
+    default: ''
+    required: false
+  key-file-name:
+    description: GCS auth key file path
+    default: ''
+    required: false
 
 outputs:
   cache-hit:
