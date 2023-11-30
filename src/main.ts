@@ -97,9 +97,10 @@ async function main() {
     saveState({
       bucket: inputs.bucket,
       path: inputs.path,
+      compressionMethod: inputs.compressionMethod,
+      keyFileName: inputs.keyFileName,
       cacheHitKind: 'none',
       targetFileName: exactFileName,
-      keyFileName: inputs.keyFileName,
     });
     core.setOutput('cache-hit', 'false');
     console.log('😢 No cache candidate found.');
@@ -127,6 +128,8 @@ async function main() {
     saveState({
       bucket: inputs.bucket,
       path: inputs.path,
+      compressionMethod: inputs.compressionMethod,
+      keyFileName: inputs.keyFileName,
       cacheHitKind: 'none',
       targetFileName: exactFileName,
     });
@@ -164,6 +167,8 @@ async function main() {
     saveState({
       path: inputs.path,
       bucket: inputs.bucket,
+      compressionMethod: inputs.compressionMethod,
+      keyFileName: inputs.keyFileName,
       cacheHitKind: bestMatchKind,
       targetFileName: exactFileName,
     });
