@@ -19,7 +19,7 @@ async function getTarCompressionMethod(): Promise<CompressionMethod> {
   }
   const state = getState();
 
-  if (state.compressionMethod) {
+  if (state.compressionMethod === CompressionMethod.GZIP) {
     return CompressionMethod.GZIP;
   }
 
