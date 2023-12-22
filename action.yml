@@ -1,5 +1,5 @@
-name: 'Google Cloud Storage Cache'
-author: 'MansaGroup'
+name: 'GCS Cache'
+author: 'passCulture'
 description: 'Cache your workload to a Google Cloud Storage bucket'
 
 inputs:
