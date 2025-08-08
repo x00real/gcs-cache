@@ -39,8 +39,8 @@ async function getBestMatch(
     .then(([files]) =>
       files.sort(
         (a, b) =>
-          new Date((b.metadata as ObjectMetadata).updated).getTime() -
-          new Date((a.metadata as ObjectMetadata).updated).getTime(),
+          new Date((b.metadata as ObjectMetadata)?.updated).getTime() -
+          new Date((a.metadata as ObjectMetadata)?.updated).getTime(),
       ),
     )
     .catch((err) => {
