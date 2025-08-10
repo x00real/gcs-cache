@@ -145,10 +145,12 @@ async function main() {
     await core
       .group('🌐 Downloading cache archive from bucket', async () => {
         console.log(`🔹 Downloading file '${bestMatch.name}'...`);
-
-        return bestMatch.download({
+        let t0 = Date.now();
+        let files = bestMatch.download({
           destination: tmpFile.path,
         });
+        console.log(`Download '${bestMatch.name}' took ${Date.now() - t0}ms.`);
+        return files;
       })
       .catch((err) => {
         core.error('Failed to download the file');

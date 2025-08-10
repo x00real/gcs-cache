@@ -69,13 +69,14 @@ async function main() {
     await core
       .group('🌐 Uploading cache archive to bucket', async () => {
         console.log(`🔹 Uploading file '${targetFileName}'...`);
-
+        let t0 = Date.now();
         await bucket.upload(tmpFile.path, {
           destination: targetFileName,
           metadata: {
             metadata: customMetadata,
           },
         });
+        console.log(`Upload '${targetFileName}' took ${Date.now() - t0}ms.`);
       })
       .catch((err) => {
         core.error('Failed to upload the file');
