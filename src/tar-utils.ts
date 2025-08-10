@@ -26,7 +26,7 @@ async function getTarCompressionMethod(): Promise<CompressionMethod> {
 
   // Check possible with lz4
   let lz4 = await possibleWithLz4();
-  if (lz4) {
+  if (lz4 && state.compressionMethod === CompressionMethod.LZ4) {
     return lz4;
   }
 
