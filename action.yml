@@ -17,7 +17,7 @@ inputs:
     default: ''
     required: false
   compression-method:
-    description: Compression method for the archive (gzip or zstd)
+    description: Compression method for the archive (gzip, zstd, lz4)
     default: ''
     required: false
   key-file-name:
