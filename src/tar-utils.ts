@@ -24,10 +24,11 @@ async function getTarCompressionMethod(): Promise<CompressionMethod> {
     return CompressionMethod.GZIP;
   }
 
-  // Check possible with lz4
-  let lz4 = await possibleWithLz4();
-  if (lz4 && state.compressionMethod === CompressionMethod.LZ4) {
-    return lz4;
+  if (state.compressionMethod === CompressionMethod.LZ4) {
+    let lz4 = await possibleWithLz4();
+    if (lz4) {
+      return lz4;
+    }
   }
 
   // Check possible with zstd
