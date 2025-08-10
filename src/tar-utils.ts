@@ -95,6 +95,7 @@ export async function createTar(
 
   const compressionArgs = buildCompressionArgs(compressionMethod);
 
+  let t0 = Date.now();
   await exec.exec('tar', [
     '-c',
     ...compressionArgs,
@@ -106,7 +107,7 @@ export async function createTar(
     cwd,
     ...paths,
   ]);
-
+  console.log(`Using '${compressionMethod} method took ${Date.now() - t0}ms for compression.`);
   return compressionMethod;
 }
 
@@ -121,6 +122,7 @@ export async function extractTar(
 
   const compressionArgs = buildDecompressionArgs(compressionMethod);
 
+  let t0 = Date.now();
   await exec.exec('tar', [
     '-x',
     ...compressionArgs,
@@ -130,6 +132,7 @@ export async function extractTar(
     '-C',
     cwd,
   ]);
+  console.log(`Decompress '${compressionMethod}' method took ${Date.now() - t0}ms.`);
 }
 
 function buildCompressionArgs(method: CompressionMethod): string[] {
